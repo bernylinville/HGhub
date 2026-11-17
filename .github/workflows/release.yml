@@ -1,9 +1,11 @@
 name: Release
 
-# 仅推送版本 tag（如 v1.2.3）时构建 macOS arm64 与 Android arm64，并发布到该 tag 的 Release。
+# 推送版本 tag（如 v1.2.3）或手动在 tag ref 上触发（fork 的 tag push 事件偶发不投递），
+# 构建 macOS arm64 与 Android arm64，并发布到该 tag 的 Release。
 on:
   push:
     tags: ["v*"]
+  workflow_dispatch:
 
 permissions:
   contents: read
